@@ -1,8 +1,8 @@
-import java.util.*;
+import java.util.Random;
 
 public class MontySim {
 
-	static Random randNum = new Random(System.currentTimeMillis());
+	static Random randNum = new Random();
 	static final int NUM_DOORS = 3;
 
 	public static void main(String[] args) {
