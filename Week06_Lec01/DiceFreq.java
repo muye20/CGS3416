@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
 
 public class DiceFreq {
 
@@ -14,7 +15,7 @@ public class DiceFreq {
 		System.out.println("Please enter number of trials to perform");
 		numTrials = input.nextInt();
 		// seed random number generator
-		Random randNum = new Random(System.currentTimeMillis());
+		Random randNum = new Random();
 
 		for (int i = 0; i < MAX_ROLL; i++)
 			freqCount[i] = 0;
