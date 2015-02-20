@@ -4,14 +4,17 @@ class Rectangle {
 	// object.
 	private double width, height;
 	// This is a static field used to specify the color of the Rectangle
-	private static String color = "Yellow";
+	private static String color = "Red";
+
+	private final double DEFAULT_WIDTH = 1.0;
+	private final double DEFAULT_HEIGHT = 1.0;
 
 	// Constructor for the class, used to set up all data when a
 	// Rectangle object is created. This default constructor creates
 	// a Rectangle object with a width and height of 1.0
 	public Rectangle() {
-		width = 1.0;
-		height = 1.0;
+		width = DEFAULT_WIDTH;
+		height = DEFAULT_HEIGHT;
 	}
 
 	// This is another constructor for the Rectangle class that accepts
@@ -20,20 +23,27 @@ class Rectangle {
 	// object is when you create it. The constructor takes w and h and
 	// sets them equal to width and height respectively.
 	public Rectangle(double w, double h) {
-		width = w;
-		height = h;
+		if (w <= 0 || h <= 0) {
+			width = DEFAULT_WIDTH;
+			height = DEFAULT_HEIGHT;
+		} else {
+			width = w;
+			height = h;
+		}
 	}
 
 	// This is a setter method, it is used to change the value of width
 	// to whatever w is.
 	public void setWidth(double w) {
-		width = w;
+		if(w > 0)
+			width = w;
 	}
 
 	// This is a setter method, it is used to change the value of height
 	// to whatever h is.
 	public void setHeight(double h) {
-		height = h;
+		if(h > 0)
+			height = h;
 	}
 
 	// This is a getter method, it is used to retrieve the value of width
@@ -62,7 +72,7 @@ class Rectangle {
 		return (2 * width) + (2 * height);
 	}
 
-	// Here is a static method 
+	// Here is a static method
 	public static String getColor() {
 		return color;
 	}
@@ -81,7 +91,6 @@ public class ObjectIntro {
 		Rectangle myRect1 = new Rectangle();
 		myRect1.Summary();
 
-		System.out.println("Rectangle Object has color " 
-				+ Rectangle.getColor());
+		System.out.println("Rectangle Object has color " + Rectangle.getColor());
 	}
 }
